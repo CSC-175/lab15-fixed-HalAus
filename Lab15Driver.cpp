@@ -5,8 +5,9 @@
 using namespace std;
 // Function prototypes
 void getInfo(int&, int&);
-double computeWays(int, int);
 double factorial(int);
+double computeWays(int, int);
+
 
 int main()
 {
