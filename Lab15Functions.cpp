@@ -8,18 +8,29 @@ double factorial(int);
 
 void getInfo(int & pickFrom, int & numPicks){
     using namespace std;
-    if(pickFrom<1 || pickFrom>12){
+
+    if(pickFrom<1 || pickFrom>12) {
         cout << "How many balls (1-12) are in the pool to pick from? ";
         cin >> pickFrom;
-        if (pickFrom<1 || pickFrom>12){
-            cout<<"Input Error!"<<endl;
+
+        if (cin.fail()) {
+            cin.clear();
+            cin.ignore(1000, '\n');
+            pickFrom = 0;
+        }
+        if (pickFrom < 1 || pickFrom > 12) {
+            cout << "Input Error! There must be between 1 and 12 balls." << endl;
             getInfo(pickFrom, numPicks);
         }
     }
+
     if(numPicks<1 || numPicks>7){
         cout<<"How many balls (1-7) will be drawn? ";
         cin>>numPicks;
-        if (numPicks<1 || numPicks>7){
+        if (cin.fail()) {
+            numPicks = 0;
+        }
+        if (numPicks<1 || numPicks>7){;
             cout<<"Input Error!"<<endl;
             getInfo(pickFrom, numPicks);
         }
